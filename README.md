@@ -1,4 +1,4 @@
-# bible-companion# Hi there, I'm [Your Name] 👋
+# bible-companion# Hi there, I'm Ingrid71942👋
 
 ### 🕊️ Building Digital Sanctuaries at the Intersection of Faith & Tech
 I am a Frontend Developer passionate about creating intentional, mindful web experiences. My work focuses on building "quiet corners" of the internet that serve a higher purpose.
