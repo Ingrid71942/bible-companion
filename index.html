@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Bible Companion - A Faith-Centered Sanctuary</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        // Tailwind Configuration for Dark Mode
+        tailwind.config = {
+            darkMode: 'class',
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .serif { font-family: 'Crimson Pro', serif; }
+        .hero-bg {
+            background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1596237295359-2ea7c9b00ebd?fm=jpg&q=60&w=3000&auto=format&fit=crop');
+            background-size: cover; background-position: center;
+        }
+        .fade-in { animation: fadeIn 1.2s ease-out; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .breath-circle {
+            width: 200px; height: 200px; border-radius: 50%;
+            background: rgba(186, 230, 253, 0.4); border: 2px solid #7dd3fc;
+            display: flex; align-items: center; justify-content: center;
+            margin: 0 auto; transition: transform 4s ease-in-out;
+        }
+        .dark .breath-circle { background: rgba(30, 58, 138, 0.3); border-color: #38bdf8; }
+        .breathing .breath-circle { animation: breathe 8s infinite ease-in-out; }
+        @keyframes breathe {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.4); }
+        }
+        .card { transition: all 0.3s ease; }
+        .card:hover { transform: translateY(-4px); }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col transition-colors duration-500 bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-200">
+
+    <nav class="bg-white/80 dark:bg-slate-900/80 backdrop-blur-md sticky top-0 z-50 border-b border-slate-200 dark:border-slate-800">
+        <div class="max-w-5xl mx-auto px-4 h-16 flex items-center justify-between">
+            <span class="text-xl font-semibold tracking-tight">The Bible Companion</span>
+            <div class="flex items-center space-x-4 md:space-x-6 text-sm font-medium">
+                <a href="#home" class="hover:text-sky-600 transition">Home</a>
+                <a href="#seek" class="hover:text-sky-600 transition hidden md:block">Seek</a>
+                <a href="#journal" class="hover:text-sky-600 transition">Journal</a>
+                <button onclick="toggleDarkMode()" id="theme-btn" class="p-2 rounded-full bg-slate-100 dark:bg-slate-800 text-lg">🌙</button>
+            </div>
+        </div>
+    </nav>
+
+    <header id="home" class="hero-bg h-[50vh] flex items-center justify-center text-center text-white px-4">
+        <div class="max-w-2xl fade-in">
+            <h1 class="text-5xl md:text-6xl mb-4">Peace be with you.</h1>
+            <p class="text-lg md:text-xl font-light opacity-90 italic">"Come to me, all you who are weary and burdened, and I will give you rest."</p>
+        </div>
+    </header>
+
+    <main class="max-w-5xl mx-auto px-4 py-12 flex-grow w-full space-y-24">
+        
+        <section>
+            <div class="bg-white dark:bg-slate-900 rounded-3xl p-8 md:p-12 shadow-sm border border-slate-100 dark:border-slate-800 flex flex-col md:flex-row gap-8 items-center">
+                <div class="md:w-1/2">
+                    <span class="text-sky-600 dark:text-sky-400 font-semibold tracking-widest text-xs uppercase mb-3 block">Daily Verse</span>
+                    <h2 class="text-3xl mb-6 italic">"For the Spirit God gave us does not make us timid, but gives us power, love and self-discipline."</h2>
+                    <p class="text-slate-500">— 2 Timothy 1:7</p>
+                </div>
+                <div class="md:w-1/2 bg-sky-50 dark:bg-sky-900/20 rounded-2xl p-6 border border-sky-100 dark:border-sky-900/30">
+                    <h3 class="text-xl mb-3 text-sky-900 dark:text-sky-300">Today's Reflection</h3>
+                    <p class="text-slate-600 dark:text-slate-400 leading-relaxed">
+                        Fear often feels like a heavy fog. But the Spirit within you is not a spirit of retreat. It is a spirit of strength. When you feel small today, remember you carry an inexhaustible source of love.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="seek">
+            <div class="text-center mb-10">
+                <h2 class="text-4xl mb-3">How is your heart today?</h2>
+                <p class="text-slate-500">Select a path to find the words you need.</p>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
+                <button onclick="showWisdom('anxious')" class="card bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 hover:border-sky-300 text-center">
+                    <span class="text-3xl mb-2 block">🌿</span><span class="font-medium">Anxious</span>
+                </button>
+                <button onclick="showWisdom('weary')" class="card bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 hover:border-sky-300 text-center">
+                    <span class="text-3xl mb-2 block">🕯️</span><span class="font-medium">Weary</span>
+                </button>
+                <button onclick="showWisdom('confused')" class="card bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 hover:border-sky-300 text-center">
+                    <span class="text-3xl mb-2 block">🧭</span><span class="font-medium">Confused</span>
+                </button>
+                <button onclick="showWisdom('grateful')" class="card bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 hover:border-sky-300 text-center">
+                    <span class="text-3xl mb-2 block">☀️</span><span class="font-medium">Grateful</span>
+                </button>
+            </div>
+            <div id="wisdom-display" class="hidden fade-in bg-white dark:bg-slate-900 rounded-3xl p-8 md:p-10 shadow-lg border border-sky-100 dark:border-sky-900 max-w-3xl mx-auto">
+                <div id="wisdom-content"></div>
+                <div class="mt-8 pt-6 border-t border-slate-100 dark:border-slate-800 text-center">
+                    <button onclick="hideWisdom()" class="text-sky-600 font-medium hover:underline">Close focus</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="quiet" class="text-center py-16 bg-slate-100 dark:bg-slate-900/50 rounded-[3rem] border border-slate-200 dark:border-slate-800">
+            <h2 class="text-4xl mb-4">A Breath of Peace</h2>
+            <p class="text-slate-500 mb-12 max-w-lg mx-auto">Inhale God's grace, exhale your worries.</p>
+            <div id="breathing-container" class="mb-12">
+                <div class="breath-circle"><span id="breath-text" class="text-sky-800 dark:text-sky-300 font-medium">Start</span></div>
+            </div>
+            <button id="breath-btn" onclick="toggleBreathing()" class="bg-sky-600 hover:bg-sky-700 text-white px-8 py-3 rounded-full transition shadow-md">Begin Guided Breath</button>
+        </section>
+
+        <section id="journal">
+            <div class="max-w-3xl mx-auto bg-white dark:bg-slate-900 rounded-3xl p-8 md:p-12 shadow-sm border border-slate-100 dark:border-slate-800">
+                <h2 class="text-3xl mb-6">Personal Reflections</h2>
+                <textarea id="journal-input" rows="4" class="w-full p-4 rounded-2xl border border-slate-200 dark:border-slate-800 bg-transparent outline-none focus:ring-2 focus:ring-sky-500 mb-4" placeholder="What is on your heart?"></textarea>
+                <button onclick="saveReflection()" class="bg-slate-800 dark:bg-sky-700 text-white px-8 py-3 rounded-xl hover:opacity-90 transition">Save Reflection</button>
+                <div id="journal-history" class="mt-12 space-y-4"></div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-slate-900 text-slate-400 py-12 text-center text-sm">
+        <p class="mb-2">The Bible Companion</p>
+        <p class="font-light italic">"The Lord bless you and keep you."</p>
+    </footer>
+
+    <script>
+        const wisdomData = {
+            anxious: { title: "Peace", verse: "Do not worry about tomorrow; for tomorrow will worry about itself.", ref: "Matthew 6:34", prayer: "Lord, settle my racing mind. I trust myself into Your strong arms." },
+            weary: { title: "Strength", verse: "My soul lies prostrate in the dust; revive me in accordance with your word.", ref: "Psalm 119:25", prayer: "Good Shepherd, carry me through the darkness of this valley." },
+            confused: { title: "Clarity", verse: "Open my eyes so that I may clearly see the wonders to be found in your law.", ref: "Psalm 119:18", prayer: "Heavenly Father, guide my steps with Your steady hand." },
+            grateful: { title: "Praise", verse: "Give thanks to the Lord, for he is good; his kindness endures forever.", ref: "Psalm 118:1", prayer: "Thank You for Your presence and making a home in me." }
+        };
+
+        // --- Wisdom & Sharing ---
+        function showWisdom(key) {
+            const data = wisdomData[key];
+            const display = document.getElementById('wisdom-display');
+            document.getElementById('wisdom-content').innerHTML = `
+                <span class="text-sky-600 dark:text-sky-400 font-semibold tracking-widest text-xs uppercase mb-2 block">${data.title}</span>
+                <h3 class="text-2xl mb-4 serif italic">"${data.verse}"</h3>
+                <p class="text-slate-500 mb-6">— ${data.ref}</p>
+                <button onclick="shareVerse('${data.ref}', '${data.verse}')" class="flex items-center gap-2 text-sm font-medium text-sky-700 dark:text-sky-300 bg-sky-100 dark:bg-sky-900/50 px-4 py-2 rounded-full mb-8 hover:bg-sky-200 transition">📤 Share this word</button>
+                <div class="bg-sky-50 dark:bg-sky-900/20 p-6 rounded-2xl border-l-4 border-sky-400 italic text-slate-700 dark:text-slate-300">"${data.prayer}"</div>
+            `;
+            display.classList.remove('hidden');
+            display.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+        function hideWisdom() { document.getElementById('wisdom-display').classList.add('hidden'); }
+
+        async function shareVerse(ref, text) {
+            const data = { title: 'The Bible Companion', text: `"${text}" — ${ref}`, url: window.location.href };
+            try {
+                if (navigator.share) await navigator.share(data);
+                else { await navigator.clipboard.writeText(data.text); alert("Verse copied!"); }
+            } catch (err) { console.error(err); }
+        }
+
+        // --- Breathing ---
+        let isBreathing = false, breathInterval;
+        function toggleBreathing() {
+            const container = document.getElementById('breathing-container'), text = document.getElementById('breath-text'), btn = document.getElementById('breath-btn');
+            isBreathing = !isBreathing;
+            if (isBreathing) {
+                container.classList.add('breathing'); btn.innerText = "Stop";
+                const run = () => { text.innerText = "Inhale Grace"; setTimeout(() => { if(isBreathing) text.innerText = "Exhale Worry"; }, 4000); };
+                run(); breathInterval = setInterval(run, 8000);
+            } else {
+                container.classList.remove('breathing'); btn.innerText = "Begin Guided Breath"; text.innerText = "Start"; clearInterval(breathInterval);
+            }
+        }
+
+        // --- Journal ---
+        function saveReflection() {
+            const input = document.getElementById('journal-input');
+            if (!input.value.trim()) return;
+            const history = JSON.parse(localStorage.getItem('reflections') || '[]');
+            history.unshift({ id: Date.now(), date: new Date().toLocaleDateString(), content: input.value });
+            localStorage.setItem('reflections', JSON.stringify(history));
+            input.value = ""; displayReflections();
+        }
+
+        function displayReflections() {
+            const container = document.getElementById('journal-history');
+            const history = JSON.parse(localStorage.getItem('reflections') || '[]');
+            container.innerHTML = history.length ? history.map(item => `
+                <div class="bg-slate-50 dark:bg-slate-800/50 p-6 rounded-2xl border border-slate-100 dark:border-slate-800">
+                    <span class="text-xs font-semibold text-sky-600 uppercase tracking-wider">${item.date}</span>
+                    <p class="mt-2 text-slate-700 dark:text-slate-300">${item.content}</p>
+                    <button onclick="deleteEntry(${item.id})" class="text-xs text-slate-400 hover:text-red-500 mt-4 underline">Remove</button>
+                </div>
+            `).join('') : '<p class="text-slate-400 italic text-center">Your saved reflections will appear here.</p>';
+        }
+
+        function deleteEntry(id) {
+            let history = JSON.parse(localStorage.getItem('reflections') || '[]');
+            localStorage.setItem('reflections', JSON.stringify(history.filter(i => i.id !== id)));
+            displayReflections();
+        }
+
+        // --- Dark Mode ---
+        function toggleDarkMode() {
+            const isDark = document.documentElement.classList.toggle('dark');
+            localStorage.theme = isDark ? 'dark' : 'light';
+            document.getElementById('theme-btn').innerText = isDark ? '☀️' : '🌙';
+        }
+
+        // Initial Load
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+            document.getElementById('theme-btn').innerText = '☀️';
+        }
+        displayReflections();
+    </script>
+</body>
+</html>
